@@ -1,3 +1,21 @@
+## Inscriptions et explications pour déployer l'infrastructure et l'application sur Azure
 
+Dossier terraform:
+terraform init
+terraform plan -var="student_name=<votre_nom>"
+terraform apply -var="student_name=<votre_nom>"
 
-## Ecrivez ici les inscriptions et explications pour déployer l'infrastructure et l'application sur Azure
+az acr login --name acrESGI<votre_nom>
+
+Dossier flask-app:
+docker build -t flask-app .
+docker tag flask-app acresgi<votre_nom>.azurecr.io/flask-app
+docker push acresgi<votre_nom>.azurecr.io/flask-app
+
+Dossier kubernetes:
+minikube start
+kubectl apply -f redis-deployment.yaml
+kubectl apply -f flask-deployment.yaml  
+kubectl apply -f ingress.yaml
+kubectl get pods
+minikube service --all
