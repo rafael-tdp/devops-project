@@ -14,9 +14,9 @@ spec:
     spec:
       containers:
         - name: flask-app
-          image: flask-app
+          image: acresgitaslima.azurecr.io/flask-app
           ports:
-            - containerPort: 5000
+            - containerPort: 8000
           env:
             - name: REDIS_HOST
               value: "redis-service"
@@ -31,4 +31,4 @@ spec:
   ports:
     - protocol: TCP
       port: 80
-      targetPort: 5000
+      targetPort: 8000

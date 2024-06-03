@@ -4,8 +4,7 @@ metadata:
   name: flask-ingress
 spec:
   rules:
-    - host: 4.212.12.156 # to change with dns name
-      http:
+    - http:
         paths:
           - path: /
             pathType: Prefix
@@ -14,3 +13,4 @@ spec:
                 name: flask-service
                 port:
                   number: 80
+  ingressClassName: nginx

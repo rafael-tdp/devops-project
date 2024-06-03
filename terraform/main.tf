@@ -63,9 +63,8 @@ resource "azurerm_role_assignment" "acr_push" {
 resource "azurerm_public_ip" "ip" {
   name                = "publicIP-${var.student_name}"
   location            = azurerm_resource_group.rg.location
-  resource_group_name = azurerm_resource_group.rg.name
+  resource_group_name = azurerm_kubernetes_cluster.aks.node_resource_group
   allocation_method   = "Static"
   sku                 = "Standard"
 }
-
 data "azurerm_client_config" "current" {}
