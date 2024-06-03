@@ -19,7 +19,7 @@ helm repo update
 helm install ingress-nginx ingress-nginx/ingress-nginx \
   --set controller.service.loadBalancerIP=<your_public_ip>
 
-Changer le nom du registry container dans le fichier flask-deployment.yaml
+Changer le nom de l'image dans le fichier flask-deployment.yaml par le nom de votre registry azure
 
 kubectl apply -f redis-deployment.yaml
 kubectl apply -f flask-deployment.yaml  
